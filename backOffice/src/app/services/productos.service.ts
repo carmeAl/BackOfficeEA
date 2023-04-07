@@ -3,41 +3,57 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ID, Producto } from '../interfaces/producto';
 import { Observable } from 'rxjs';
+import { Ticket } from '../interfaces/ticket';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
-  private myAppUrl:string;
+  
+  private myAppUrl: string;
 
-  constructor(private http:HttpClient) {
-    this.myAppUrl=environment.endpoint;
+  constructor(private http: HttpClient) {
+    this.myAppUrl = environment.endpoint;
+
     
-   }
+  }
 
-   getListProductos():Observable<Producto[]>{
-    const myApiUrl:string='producto/all'
+  getProductosTicket(id: string) {
+    const myApiUrl: string = `ticket/${id}/productos`;
     return this.http.get<Producto[]>(`${this.myAppUrl}${myApiUrl}`)
-   }
+  }
 
-   deleteProducto(id:ID):Observable<void>{
-    const myApiUrl:string='producto/'
+  getListProductos(): Observable<Producto[]> {
+    const myApiUrl: string = 'producto/all'
+    return this.http.get<Producto[]>(`${this.myAppUrl}${myApiUrl}`)
+  }
+
+  deleteProducto(id: ID): Observable<void> {
+    const myApiUrl: string = 'producto/'
     return this.http.delete<void>(`${this.myAppUrl}${myApiUrl}${id}`)
-    
-   }
 
-   crateProduco(producto:Producto):Observable<void>{
-    const myApiUrl:string='producto/'
-    return this.http.post<void>(`${this.myAppUrl}${myApiUrl}`,producto);
-   }
+  }
 
-   getProducto(id:string):Observable<Producto>{
-    const myApiUrl:string='producto/';
+  crateProducto(producto: Producto): Observable<Producto> {
+    const myApiUrl: string = 'producto/'
+    return this.http.post<Producto>(`${this.myAppUrl}${myApiUrl}`, producto);
+  }
+
+  getProducto(id: string): Observable<Producto> {
+    const myApiUrl: string = 'producto/';
     return this.http.get<Producto>(`${this.myAppUrl}${myApiUrl}${id}`);
-   }
+  }
 
-   updateProducto(id:string,product:Producto):Observable<Producto>{
-    const myApiUrl:string='producto/';
-    return this.http.put<Producto>(`${this.myAppUrl}${myApiUrl}${id}`,product);
-   }
+  updateProducto(id: string, product: Producto): Observable<Producto> {
+    const myApiUrl: string = 'producto/';
+    return this.http.put<Producto>(`${this.myAppUrl}${myApiUrl}${id}`, product);
+  }
+
+  insertProductoToTicket(idTicket: string, idProducto: string): Observable<Ticket> {
+    const myApiUrl: string = 'ticket/insert'
+    return this.http.post<Ticket>(`${this.myAppUrl}${myApiUrl}`,{
+      "idTicket":`${idTicket}`,
+      "idProducto":`${idProducto}`
+  });
+  }
 }

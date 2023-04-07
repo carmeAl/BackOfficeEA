@@ -20,7 +20,7 @@
                     <input formControlName="totalPrice" type="numer" class="form-control mt-2" placeholder="Ingrese precio total">
                     <div class="row mt-2 text-center">
                         <div class="col-lg-6">
-                            <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
+                            <button (click)="goBack()" type="button" class="btn btn-secondary">Volver</button>
                         </div>
                         <div class="col-lg-6">
                             <button [disabled]="formProducto.invalid" type="submit" class="btn btn-primary">{{operacion}}</button>
