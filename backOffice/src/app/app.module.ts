@@ -18,6 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListProductosComponent } from './components/list-productos/list-productos.component';
 import { AddEditProductoComponent } from './components/add-edit-producto/add-edit-producto.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { ListTicketsComponent } from './components/list-tickets/list-tickets.component';
+import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-tickets.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     NavbarComponent,
     ListProductosComponent,
     AddEditProductoComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ListTicketsComponent,
+    AddEditTicketComponent
   ],
   imports: [
     BrowserModule,

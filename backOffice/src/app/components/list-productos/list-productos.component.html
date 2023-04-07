@@ -2,7 +2,7 @@
 <div *ngIf="!loading" class="container">
     <div class="title">
         <h4>Listado de Productos</h4>
-        <button type="button" class="btn btn-primary" routerLink="/addProducto">Añadir Producto</button>
+        <button type="button" class="btn btn-primary" routerLink="add">Añadir Producto</button>
     </div>
     
     <table *ngIf="listProducts.length>0" class="table table-hover">
@@ -26,7 +26,7 @@
             <!-- <td>{{item.createdAt}}</td>
             <td>{{item.updatedAt}}</td> -->
             <td>
-                <button routerLink="/edit/{{item?._id}}" type="button" class="btn btn-info btn-sm">Edit</button>
+                <button routerLink="edit/{{item?._id}}" type="button" class="btn btn-info btn-sm">Edit</button>
                 <button (click)="deleteProducto(item._id!)" type="button" class="btn btn-secondary btn-sm ms-2">Delete</button>
             </td>
           </tr>

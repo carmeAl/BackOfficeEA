@@ -5,6 +5,8 @@ import { ListProductosComponent } from '../list-productos/list-productos.compone
 import { ProductosService } from 'src/app/services/productos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Ticket } from 'src/app/interfaces/ticket';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-edit-producto',
@@ -14,14 +16,16 @@ import { ToastrService } from 'ngx-toastr';
 export class AddEditProductoComponent {
   formProducto: FormGroup;
   loading: boolean = false;
-  id: string;
+  idProducto: string;
+  idTicket: string;
   operacion: string = 'Añadir ';
 
   constructor(private fb: FormBuilder,
     private _productService: ProductosService,
     private router: Router,
     private toastr: ToastrService,
-    private aRouter: ActivatedRoute) {
+    private aRouter: ActivatedRoute,
+    private _location: Location) {
     this.formProducto = this.fb.group({
       //Para poner mas de una validacion hay que ponerlas entre claudators
       name: ['', Validators.required],
@@ -29,13 +33,18 @@ export class AddEditProductoComponent {
       price: [null, Validators.required],
       totalPrice: [null]
     })
-    this.id = aRouter.snapshot.paramMap.get("id")!;
+    this.idProducto = aRouter.snapshot.paramMap.get("idProducto")!;
+    this.idTicket = aRouter.snapshot.paramMap.get("idTicket")!;
   }
   ngOnInit(): void {
-    if (this.id != null) {
+    if (this.idProducto != null) {
       this.operacion = 'Actualizar ';
-      this.getProduct(this.id);
+      this.getProduct(this.idProducto);
     }
+  }
+
+  goBack(){
+    this._location.back();
   }
 
 
@@ -49,20 +58,39 @@ export class AddEditProductoComponent {
     }
 
     this.loading = true;
-    if (this.id !== null) {
+    if (this.idProducto !== null) {
       //Es update
-      this._productService.updateProducto(this.id, product).subscribe(() => {
+      this._productService.updateProducto(this.idProducto, product).subscribe(() => {
         this.toastr.info(`El producto ${product.name} fue actualizado con exito`, 'Producto actualizado');
         this.loading = false;
-        this.router.navigate(['/']);
+        if (this.idTicket !== null) {
+          this.router.navigate([`/ticket/${this.idTicket}/productos`]);
+        }
+        else{
+          this.router.navigate([`/producto`]);
+        }
+       
       })
     } else {
       //Es crear
-      this._productService.crateProduco(product).subscribe(() => {
+      this._productService.crateProducto(product).subscribe((data:Producto) => {
         this.toastr.success(`El producto ${product.name} fue agregado con exito`, 'Producto agregado')
         this.loading = false;
-        this.router.navigate(['/']);
+        this.idProducto=String(data._id!);
+        console.log(data);
+        
+        //Es añadir el producto al ticket
+        if (this.idTicket !== null) {
+          this._productService.insertProductoToTicket(this.idTicket,this.idProducto).subscribe();
+        }
+
+        if (this.idTicket !== null) {
+          this.router.navigate([`/ticket/${this.idTicket}/productos`]);
+        }else{
+          this.router.navigate([`/producto`]);
+        }
       })
+
     }
     
 
