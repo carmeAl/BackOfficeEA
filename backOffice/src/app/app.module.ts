@@ -15,8 +15,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ListProductosComponent } from './components/list-productos/list-productos.component';
-import { AddEditProductoComponent } from './components/add-edit-users/add-edit-users.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     AppComponent,
     NavbarComponent,
     ListUsersComponent,
-    AddEditUserComponent,
+    AddEditUsersComponent,
     ProgressBarComponent,
 
   ],

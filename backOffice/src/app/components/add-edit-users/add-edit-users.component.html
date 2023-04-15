@@ -11,11 +11,15 @@
                     </span>
                     <input formControlName="surname" type="text" class="form-control mt-2" placeholder="Ingrese surname">
                     <span *ngIf="formUsers.get('surname')?.hasError('required') && formUsers.get('surname')?.touched">
-                        El campo apelliso es <strong>requerido</strong>
+                        El campo apellido es <strong>requerido</strong>
                     </span>
-                    <input formControlName="age" type="number" class="form-control mt-2" placeholder="Ingrese edad">
-                    <span *ngIf="formPUsers.get('age')?.hasError('required') && formUsers.get('age')?.touched">
-                        El campo precio es <strong>requerido</strong>
+                    <input formControlName="email" type="number" class="form-control mt-2" placeholder="Ingrese edad">
+                    <span *ngIf="formUsers.get('email')?.hasError('required') && formUsers.get('email')?.touched">
+                        El campo email es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="password" type="number" class="form-control mt-2" placeholder="Ingrese edad">
+                    <span *ngIf="formUsers.get('password')?.hasError('required') && formUsers.get('password')?.touched">
+                        El campo password es <strong>requerido</strong>
                     </span>
                 
                     <div class="row mt-2 text-center">

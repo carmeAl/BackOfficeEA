@@ -11,7 +11,8 @@ export interface User {
     _id?:         ID;
     name:        string;
     surname:     string;
-    age:         number;
+    email:       string;
+    password:    string;
 
     createdAt?:   AtedAt;
     updatedAt?:   AtedAt;

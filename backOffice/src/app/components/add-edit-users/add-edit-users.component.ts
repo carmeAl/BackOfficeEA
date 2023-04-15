@@ -6,7 +6,6 @@ import { ID, User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/interfaces/user';
 import { Location } from '@angular/common';
 
 @Component({
@@ -30,7 +29,8 @@ export class AddEditUsersComponent {
       //Para poner mas de una validacion hay que ponerlas entre claudators
       name: ['', Validators.required],
       surname: [null, Validators.required],
-      age: [null, Validators.required]  
+      email: [null, Validators.required],
+      password: [null, Validators.required] 
     })
     this.idUser = aRouter.snapshot.paramMap.get("idUser")!;
 
@@ -50,8 +50,9 @@ export class AddEditUsersComponent {
   addUser() {
     const user: User = {
       name: this.formUsers.value.name,
-      surname: this.formUsers.value.quantity,
-      age: this.formUsers.value.price,
+      surname: this.formUsers.value.surnmae,
+      email: this.formUsers.value.email,
+      password: this.formUsers.value.password,
 
     }
 
@@ -102,7 +103,8 @@ export class AddEditUsersComponent {
       this.formUsers.patchValue({
         name: data.name,
         surname: data.surname,
-        age: data.age,
+        email: data.email,
+        password: data.password,
       })
     })
   }
