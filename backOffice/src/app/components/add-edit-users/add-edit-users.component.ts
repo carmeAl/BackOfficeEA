@@ -50,12 +50,11 @@ export class AddEditUsersComponent {
   addUser() {
     const user: User = {
       name: this.formUsers.value.name,
-      surname: this.formUsers.value.surnmae,
+      surname: this.formUsers.value.surname,
       email: this.formUsers.value.email,
       password: this.formUsers.value.password,
-
     }
-
+    console.log(user);
     this.loading = true;
     if (this.idUser !== null) {
       //Es update
@@ -89,7 +88,7 @@ export class AddEditUsersComponent {
         //}else{
           //this.router.navigate([`/producto`]);
         //}
-        //this.router.navigate([`/`]);
+        this.router.navigate([`/`]);
       })
 
     }
