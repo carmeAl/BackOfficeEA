@@ -6,7 +6,8 @@ import { ListProductosComponent } from './components/list-productos/list-product
 import { AddEditProductoComponent } from './components/add-edit-producto/add-edit-producto.component';
 import { ListTicketsComponent } from './components/list-tickets/list-tickets.component';
 import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-tickets.component';
-
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
 
 const routes: Routes = [
   
@@ -19,6 +20,9 @@ const routes: Routes = [
   {path:'producto',component:ListProductosComponent},
   {path:'producto/add',component:AddEditProductoComponent},
   {path:'producto/edit/:idProducto',component:AddEditProductoComponent},
+  {path:'user',component:ListUsersComponent},
+  {path:'user/add',component:AddEditUsersComponent},
+  {path:'user/edit/:idUser',component:AddEditUsersComponent},
   {path:'**',redirectTo:'',pathMatch:'full'} //Este siempre el ultimo
 ];
 

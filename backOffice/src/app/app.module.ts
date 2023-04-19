@@ -20,6 +20,8 @@ import { AddEditProductoComponent } from './components/add-edit-producto/add-edi
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 import { ListTicketsComponent } from './components/list-tickets/list-tickets.component';
 import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-tickets.component';
+import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-t
     AddEditProductoComponent,
     ProgressBarComponent,
     ListTicketsComponent,
-    AddEditTicketComponent
+    AddEditTicketComponent,
+    AddEditUsersComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
