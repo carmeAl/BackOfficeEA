@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Components
 import { ListProductosComponent } from './components/list-productos/list-productos.component';
-import { AddEditProductoComponent } from './components/add-edit-producto/add-edit-producto.component';
+import { AddEditProductoComponent } from './components/add-edit-productos/add-edit-productos.component';
 import { ListTicketsComponent } from './components/list-tickets/list-tickets.component';
 import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-tickets.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
+import { ListGruposComponent } from './components/list-grupos/list-grupos.component';
+import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-grupos.component';
 
 const routes: Routes = [
   
@@ -23,6 +25,9 @@ const routes: Routes = [
   {path:'user',component:ListUsersComponent},
   {path:'user/add',component:AddEditUsersComponent},
   {path:'user/edit/:idUser',component:AddEditUsersComponent},
+  {path:'grupo',component:ListGruposComponent},
+  {path:'grupo/add',component:AddEditGrupoComponent},
+  {path:'grupo/edit/:idGrupo',component:AddEditGrupoComponent},
   {path:'**',redirectTo:'',pathMatch:'full'} //Este siempre el ultimo
 ];
 

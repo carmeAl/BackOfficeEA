@@ -1,0 +1,27 @@
+<div *ngIf="!loading" class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">Login</div>
+            <div class="card-body">
+                <form [formGrup] = "formLogin" (ngSubmit)="login()">
+                    <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
+                    <span *ngIf="formUsers.get('name')?.hasError('required') && formUsers.get('name')?.touched">
+                        El campo nombre es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="password" type="text" class="form-control mt-2" placeholder="Ingrese password">
+                    <span *ngIf="formUsers.get('password')?.hasError('required') && formUsers.get('password')?.touched">
+                        El campo password es <strong>requerido</strong>
+                    </span>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                        </div>
+                        <div class="col-lg-6">
+                            <button [disabled]="formLogin.invalid" type="submit" class="btn btn-primary">Entrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

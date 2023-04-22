@@ -16,12 +16,15 @@ import { ToastrModule } from 'ngx-toastr';
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListProductosComponent } from './components/list-productos/list-productos.component';
-import { AddEditProductoComponent } from './components/add-edit-producto/add-edit-producto.component';
-import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { AddEditProductoComponent } from './components/add-edit-productos/add-edit-productos.component';
+import { ProgressBarComponent } from './components/shared/progress-bar/progress-bar.component';
 import { ListTicketsComponent } from './components/list-tickets/list-tickets.component';
 import { AddEditTicketComponent } from './components/add-edit-tickets/add-edit-tickets.component';
 import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListGruposComponent } from './components/list-grupos/list-grupos.component';
+import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-grupos.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     ListTicketsComponent,
     AddEditTicketComponent,
     AddEditUsersComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ListGruposComponent,
+    AddEditGrupoComponent,
   ],
   imports: [
     BrowserModule,
