@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //Components
-import { ListUsersComponent } from './components/list-users/list-users.component';
-import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
+import { ListGruposComponent } from './components/list-grupos/list-grupos.component';
+import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-grupos.component';
 
 
 
 const routes: Routes = [
   
-  {path:'user',component:ListUsersComponent},
-  {path:'user/add',component:AddEditUsersComponent},
-  {path:'user/edit/:idUser',component:AddEditUsersComponent},
+  {path:'grupo',component:ListGruposComponent},
+  {path:'grupo/add',component:AddEditGrupoComponent},
+  {path:'grupo/edit/:idGrupo',component:AddEditGrupoComponent},
   {path:'**',redirectTo:'',pathMatch:'full'} //Este siempre el ultimo
 ];
 
