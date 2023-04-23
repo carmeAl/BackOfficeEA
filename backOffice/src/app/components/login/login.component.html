@@ -3,7 +3,7 @@
         <div class="card bg-secondary mb-3" style="max-width: 25rem;">
             <div class="card-header text-center">Login</div>
             <div class="card-body">
-                <form [formGrup] = "formLogin" (ngSubmit)="login()">
+                <form [formGroup] = "formLogin" (ngSubmit)="login()">
                     <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
                     <span *ngIf="formUsers.get('name')?.hasError('required') && formUsers.get('name')?.touched">
                         El campo nombre es <strong>requerido</strong>

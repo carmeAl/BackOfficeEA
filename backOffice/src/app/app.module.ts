@@ -24,6 +24,7 @@ import { AddEditUsersComponent } from './components/add-edit-users/add-edit-user
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ListGruposComponent } from './components/list-grupos/list-grupos.component';
 import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-grupos.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-gru
     ListUsersComponent,
     ListGruposComponent,
     AddEditGrupoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

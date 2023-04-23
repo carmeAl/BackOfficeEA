@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ID, User } from 'src/app/interfaces/user';
 //import { ListUsersComponent } from '../list-productos/list-productos.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -16,6 +16,7 @@ import { Location } from '@angular/common';
 export class LoginComponent {
   listUsers: User[] = [];
   formLogin: FormGroup;
+  formUsers: FormGroup;
   loading: boolean = false;
 
   constructor(private fb: FormBuilder,
@@ -27,6 +28,13 @@ export class LoginComponent {
     this.formLogin = this.fb.group({
       //Para poner mas de una validacion hay que ponerlas entre claudators
       name: ['', Validators.required],
+      password: [null, Validators.required] 
+    })
+    this.formUsers = this.fb.group({
+      //Para poner mas de una validacion hay que ponerlas entre claudators
+      name: ['', Validators.required],
+      surname: [null, Validators.required],
+      email: [null, Validators.required],
       password: [null, Validators.required] 
     })
 
@@ -46,7 +54,7 @@ export class LoginComponent {
 
 
   login() {
-    const name = this.formLogin.value.name;
+    const name= this.formLogin.value.name;
     const password = this.formLogin.value.password;
     this.getListUsers();
     const x = 0;
