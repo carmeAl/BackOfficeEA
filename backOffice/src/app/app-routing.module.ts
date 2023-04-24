@@ -10,9 +10,11 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { AddEditUsersComponent } from './components/add-edit-users/add-edit-users.component';
 import { ListGruposComponent } from './components/list-grupos/list-grupos.component';
 import { AddEditGrupoComponent } from './components/add-edit-grupos/add-edit-grupos.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   
+  {path:'',component:LoginComponent},
   {path:'ticket',component:ListTicketsComponent},
   {path:'ticket/add',component:AddEditTicketComponent},
   {path:'ticket/edit/:idTicket',component:AddEditTicketComponent},

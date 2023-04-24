@@ -44,5 +44,13 @@ export class UsersService {
     return this.http.put<User>(`${this.myAppUrl}${myApiUrl}${id}`, user);
   }
 
+  login(name: string, password: string): Observable<User> {
+    const myApiUrl: string = 'auth/login';
+    return this.http.post<User>(`${this.myAppUrl}${myApiUrl}`, {
+      "name":`${name}`,
+      "password":`${password}`
+  });
+  }
+
 
 }

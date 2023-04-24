@@ -28,6 +28,7 @@ modules/.settings
 modules/.vscode
 .vimrc
 .nvimrc
+/node_modules
 
 # Don't check in secret files
 *secret.js

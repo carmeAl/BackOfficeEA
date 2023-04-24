@@ -56,15 +56,30 @@ export class LoginComponent {
   login() {
     const name= this.formLogin.value.name;
     const password = this.formLogin.value.password;
-    this.getListUsers();
-    const x = 0;
-    while (this.listUsers.length > 0){
+    this._usersService.login(name,password).subscribe({
+      next: (result) => {
+        this.router.navigate([`/user`]); 
+      },
+  
+      error: (error) => {
+          // throw error;
+          this.toastr.warning('Credenciales de usuario incorrectos','Credenciales incorrectos');
+          throw error.message;
+      },
+  }
+    );
+    
+    /*this.getListUsers();
+    console.log(this.listUsers.length);
+    var x = 0;
+    while (this.listUsers.length > x){
         if (name==this.listUsers[x].name && password==this.listUsers[x].password){
             if (this.listUsers[x].role == "Admin"){
-              this.router.navigate([`/`]); 
+              this.router.navigate([`/user`]); 
             }
         }
-    }
+        x++;
+    }*/
   }
 
 }

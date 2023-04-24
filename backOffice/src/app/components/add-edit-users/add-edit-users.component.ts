@@ -30,7 +30,8 @@ export class AddEditUsersComponent {
       name: ['', Validators.required],
       surname: [null, Validators.required],
       email: [null, Validators.required],
-      password: [null, Validators.required] 
+      password: [null, Validators.required],
+      role: [null, Validators.required]  
     })
     this.idUser = aRouter.snapshot.paramMap.get("idUser")!;
 
@@ -55,6 +56,7 @@ export class AddEditUsersComponent {
       password: this.formUsers.value.password,
       role: this.formUsers.value.role,
     }
+    console.log(user);
 
     this.loading = true;
     if (this.idUser !== null) {
@@ -68,7 +70,8 @@ export class AddEditUsersComponent {
         //else{
           //this.router.navigate([`/producto`]);
        // }
-       this.router.navigate([`/`]);
+       //this.router.navigate([`/`]);
+       this.goBack();
        
       })
     } else {
@@ -77,6 +80,7 @@ export class AddEditUsersComponent {
         this.toastr.success(`El usuario ${user.name} fue agregado con exito`, 'User agregado')
         this.loading = false;
         this.idUser=String(data._id!);
+        this.goBack();
         
         //Es añadir el usuaio al ticket
         //if (this.idTicket !== null) {

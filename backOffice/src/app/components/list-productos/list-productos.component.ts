@@ -23,6 +23,7 @@ export class ListProductosComponent {
   ngOnInit(): void {
     if (this.idTicket != null) {
       this.getProductosTicket(this.idTicket);
+      console.log(this.idTicket)
     }else{
       this.getListProductos()
     }
@@ -55,6 +56,7 @@ export class ListProductosComponent {
     this._productoService.getProductosTicket(id).subscribe((data: Producto[]) => {
       this.listProducts = data;
       this.loading = false;
+      console.log(this.listProducts);
     })
   }
 

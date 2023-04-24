@@ -33,7 +33,7 @@ export class ListTicketsComponent {
   this._ticketService.deleteTicket(id).subscribe(()=>{
     //this.loading=false;
     this.getListTickets();
-    this.toastr.warning('El ticket fue eliminado con exito','Ticket eliminado');
+    this.toastr.error('El ticket fue eliminado con exito','Ticket eliminado');
   });
  }
 
