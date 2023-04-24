@@ -21,6 +21,13 @@
                     <span *ngIf="formUsers.get('password')?.hasError('required') && formUsers.get('password')?.touched">
                         El campo password es <strong>requerido</strong>
                     </span>
+                    <select type="text" id="role" name="role" formControlName="role" placeholder="Ingrese role">
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                      </select>
+                    <span *ngIf="formUsers.get('role')?.hasError('required') && formUsers.get('role')?.touched">
+                        El campo role es <strong>requerido</strong>
+                    </span>
                 
                     <div class="row mt-2 text-center">
                         <div class="col-lg-6">

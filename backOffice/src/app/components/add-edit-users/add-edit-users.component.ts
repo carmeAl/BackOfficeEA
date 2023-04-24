@@ -53,7 +53,7 @@ export class AddEditUsersComponent {
       surname: this.formUsers.value.surname,
       email: this.formUsers.value.email,
       password: this.formUsers.value.password,
-
+      role: this.formUsers.value.role,
     }
 
     this.loading = true;
@@ -104,6 +104,7 @@ export class AddEditUsersComponent {
         surname: data.surname,
         email: data.email,
         password: data.password,
+        role: data.role,
       })
     })
   }

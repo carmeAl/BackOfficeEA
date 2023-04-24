@@ -60,7 +60,9 @@ export class LoginComponent {
     const x = 0;
     while (this.listUsers.length > 0){
         if (name==this.listUsers[x].name && password==this.listUsers[x].password){
-            this.router.navigate([`/`]); 
+            if (this.listUsers[x].role == "Admin"){
+              this.router.navigate([`/`]); 
+            }
         }
     }
   }

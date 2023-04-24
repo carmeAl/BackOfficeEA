@@ -13,6 +13,7 @@ export interface User {
     surname:     string;
     email:       string;
     password:    string;
+    role:        string;
 
     createdAt?:   AtedAt;
     updatedAt?:   AtedAt;
