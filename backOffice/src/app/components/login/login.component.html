@@ -10,7 +10,7 @@
                     <span *ngIf="formUsers.get('name')?.hasError('required') && formUsers.get('name')?.touched">
                         El campo nombre es <strong>requerido</strong>
                     </span>
-                    <input formControlName="password" type="text" class="form-control mt-2" placeholder="Ingrese password">
+                    <input formControlName="password" type="password" class="form-control mt-2" placeholder="Ingrese password">
                     <span *ngIf="formUsers.get('password')?.hasError('required') && formUsers.get('password')?.touched">
                         El campo password es <strong>requerido</strong>
                     </span>

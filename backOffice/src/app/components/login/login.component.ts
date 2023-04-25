@@ -58,9 +58,13 @@ export class LoginComponent {
     const password = this.formLogin.value.password;
     this._usersService.login(name,password).subscribe({
       next: (result) => {
-        this.router.navigate([`/user`]); 
+        console.log(result.user.role);
+        if (result.user.role === "Admin"){
+          this.router.navigate([`/user`]); 
+        } else {
+          this.toastr.warning('No tienes permisos para acceder, tu role no es el indicado','Credenciales incorrectos');
+        }
       },
-  
       error: (error) => {
           // throw error;
           this.toastr.warning('Credenciales de usuario incorrectos','Credenciales incorrectos');
