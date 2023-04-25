@@ -29,8 +29,13 @@ export class UsersService {
 
   }
 
-  crateUser(user: User): Observable<User> {
+  /*crateUser(user: User): Observable<User> {
     const myApiUrl: string = 'user/'
+    return this.http.post<User>(`${this.myAppUrl}${myApiUrl}`, user);
+  }*/
+
+  crateUser(user: User): Observable<User> {
+    const myApiUrl: string = 'auth/register'
     return this.http.post<User>(`${this.myAppUrl}${myApiUrl}`, user);
   }
 
