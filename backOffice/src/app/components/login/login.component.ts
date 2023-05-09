@@ -27,7 +27,7 @@ export class LoginComponent {
     private _location: Location) {
     this.formLogin = this.fb.group({
       //Para poner mas de una validacion hay que ponerlas entre claudators
-      name: ['', Validators.required],
+      email: ['', Validators.required],
       password: [null, Validators.required] 
     })
     this.formUsers = this.fb.group({
@@ -54,9 +54,9 @@ export class LoginComponent {
 
 
   login() {
-    const name= this.formLogin.value.name;
+    const email= this.formLogin.value.email;
     const password = this.formLogin.value.password;
-    this._usersService.login(name,password).subscribe({
+    this._usersService.login(email,password).subscribe({
       next: (result) => {
         console.log(result.user.role);
         if (result.user.role === "Admin"){

@@ -6,9 +6,9 @@
             <div class="card-header text-center">Login</div>
             <div class="card-body">
                 <form [formGroup] = "formLogin" (ngSubmit)="login()">
-                    <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
-                    <span *ngIf="formUsers.get('name')?.hasError('required') && formUsers.get('name')?.touched">
-                        El campo nombre es <strong>requerido</strong>
+                    <input formControlEmail="email" type="text" class="form-control" placeholder="Ingrese email">
+                    <span *ngIf="formUsers.get('email')?.hasError('required') && formUsers.get('email')?.touched">
+                        El campo email es <strong>requerido</strong>
                     </span>
                     <input formControlName="password" type="password" class="form-control mt-2" placeholder="Ingrese password">
                     <span *ngIf="formUsers.get('password')?.hasError('required') && formUsers.get('password')?.touched">
